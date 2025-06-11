@@ -9,6 +9,16 @@ import { MapPin, Search, Navigation, Clock, Star, Phone, Calendar } from 'lucide
 import Navbar from '@/components/Navbar';
 import { MapContainer, GeoJSON, Marker, Popup, ImageOverlay, useMap, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
+import L from "leaflet";
+
+
+const customIcon = new Icon({
+  iconUrl: markerIconPng,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
 
 
 const Map = () => {
@@ -166,12 +176,17 @@ const Map = () => {
         attribution='&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             {partners.map(partner => (
-              <Marker key={partner.id} position={[partner.lat, partner.lng]}>
-            
-      <Popup>
-        {partner.name} <br />
-      </Popup>
-    </Marker>))}
+      <Marker
+        key={partner.id}
+        position={[partner.lat, partner.lng]}
+        //@ts-ignore
+        icon={customIcon}
+      >
+        <Popup>
+          {partner.name} <br />
+        </Popup>
+      </Marker>
+    ))}
 
             </MapContainer>
                 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +5,10 @@ import { Badge } from '@/components/ui/badge';
 import { Recycle, MapPin, Award, Users, Smartphone, Calendar, TrendingUp, CheckCircle, ArrowRight, Star, Leaf, Globe, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AppNavbar from '@/components/AppNavbar';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const Index = () => {
   const features = [
@@ -82,36 +85,46 @@ const Index = () => {
       <AppNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <Badge className="bg-green-100 text-green-700 hover:bg-green-200 px-4 py-2">
-                  🌱 Circular Economy Platform
-                </Badge>
-                <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Transform 
-                  <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Plastic Waste </span>
-                  Into a Better Future
-                </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Join the recycling revolution with PolyRevive. Connect with collectors, 
-                  make an impact, and create a sustainable future through our AI-powered platform.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
+      <section className="relative overflow-hidden h-[100vh]">
+  {/* Background Swiper */}
+  <div className="absolute inset-0 z-0">
+    <Swiper
+      modules={[Navigation, Autoplay]}
+      navigation
+      loop
+      autoplay={{ delay: 4000 }}
+      className="h-full w-full"
+    >
+      {/* Slide 1 */}
+      <SwiperSlide>
+        <div className="relative h-full w-full">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/012/566/928/non_2x/plastic-bottles-for-recycling-background-concept-photo.jpg"
+            alt="Background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-10"></div>
+          <div className="relative z-20 flex items-center justify-center h-full px-6 text-center">
+            <div className="max-w-3xl space-y-8">
+              <Badge className="bg-green-100 text-green-500 px-4 py-2">
+                🌱 Circular Economy Platform
+              </Badge>
+              <h1 className="text-4xl md:text-5xl font-bold text-black-1000">
+                Transform <span className="bg-gradient-to-r from-green-700 to-blue-700 bg-clip-text text-transparent">Plastic Waste</span> Into a Better Future
+              </h1>
+              <p className="text-lg text-black-700">
+                Join the recycling revolution with PolyRevive. Connect with collectors, make an impact, and build a sustainable world.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left text-green-700 px-4">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center gap-3 text-green-700">
+                  <div key={index} className="flex items-center gap-3">
                     <benefit.icon className="h-5 w-5" />
                     <span className="font-medium">{benefit.text}</span>
                   </div>
                 ))}
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/signup" className="flex-1">
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/signup" className="flex-1 sm:flex-initial">
                   <Button className="w-full h-14 text-lg bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 font-semibold">
                     Start Recycling Today
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -126,36 +139,58 @@ const Index = () => {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </SwiperSlide>
 
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl flex items-center justify-center relative overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-200/20 to-blue-200/20"></div>
-                <div className="relative z-10 text-center">
-                  <div className="w-40 h-40 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
-                    <Recycle className="h-20 w-20 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-3">2,847+ Members</h3>
-                  <p className="text-gray-600 text-lg">Already making an impact</p>
-                </div>
-                
-                {/* Floating elements */}
-                <div className="absolute top-8 right-8 bg-white rounded-xl p-4 shadow-xl">
-                  <div className="flex items-center gap-3">
-                    <Award className="h-6 w-6 text-yellow-500" />
-                    <span className="font-semibold">+50 Points</span>
-                  </div>
-                </div>
-                <div className="absolute bottom-8 left-8 bg-white rounded-xl p-4 shadow-xl">
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-6 w-6 text-green-500" />
-                    <span className="font-semibold">Partner Near</span>
-                  </div>
-                </div>
-              </div>
+      {/* Slide 2 */}
+      <SwiperSlide>
+        <div className="relative h-full w-full">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/5369465be4b0507a1fd05af0/1545091517468-ILOFFQ43A9CTHK6EV7PQ/Ben+Hicks.JPG"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10"></div>
+          <div className="relative z-20 flex items-center justify-center h-full px-8 text-center">
+            <div className="max-w-2xl space-y-6">
+              <Badge className="bg-blue-100 text-blue-700 px-4 py-2">🌊 Ocean Preservation</Badge>
+              <h1 className="text-4xl md:text-5xl font-bold text-black-900">
+                Save Our <span className="bg-gradient-to-r from-blue-700 to-teal-700 bg-clip-text text-transparent">Oceans</span> from Plastic Pollution
+              </h1>
+              <p className="text-lg text-black-700">
+                Reduce marine waste and protect biodiversity by being part of our responsible recycling chain.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </SwiperSlide>
+
+      {/* Slide 3 */}
+      <SwiperSlide>
+        <div className="relative h-full w-full">
+          <img
+            src="https://thumbs.dreamstime.com/b/ecoempower-green-energy-illuminating-sustainable-tomorrow-bask-brilliance-future-as-vibrant-takes-center-stage-304383984.jpg"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10"></div>
+          <div className="relative z-20 flex items-center justify-center h-full px-8 text-center">
+            <div className="max-w-2xl space-y-6">
+              <Badge className="bg-yellow-100 text-yellow-800 px-4 py-2">🌍 Smart Sustainability</Badge>
+              <h1 className="text-4xl md:text-5xl font-bold text-black-900">
+                Empower a <span className="bg-gradient-to-r from-yellow-700 to-green-700 bg-clip-text text-transparent">Greener Tomorrow</span>
+              </h1>
+              <p className="text-lg text-black-700">
+                Use our AI-driven tools to optimize your recycling and track your eco-contributions in real time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
+  </div>
+</section>
+
+
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-white/50">
@@ -278,7 +313,7 @@ const Index = () => {
               </Link>
               <Button 
                 variant="outline" 
-                className="h-14 px-8 text-lg border-white text-white hover:bg-white/10 font-semibold"
+                className="h-14 px-8 text-lg  text-black hover:bg-white/10 font-semibold"
                 onClick={handleLearnMore}
               >
                 Learn More
@@ -340,4 +375,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Index

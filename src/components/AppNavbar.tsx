@@ -196,10 +196,11 @@ const AppNavbar = () => {
                   </div>
 
                   {/* Mobile Book Pickup Button */}
+                  <Link to={"/map"}>
                   <Button className="bg-green-600 hover:bg-green-700 flex items-center gap-2 py-3">
                     <Plus className="h-5 w-5" />
                     Book Pickup
-                  </Button>
+                  </Button></Link>
                 </div>
               </SheetContent>
             </Sheet>

@@ -9,10 +9,10 @@ const AISorting = () => {
       <AppNavbar />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">AI Plastic Sorting 🤖</h1>
+        {/* <div className="mb-8">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">AI Plastic Sorting </h1>
           <p className="text-lg text-gray-600">Use our advanced AI to identify and sort plastic types for proper recycling</p>
-        </div>
+        </div> */}
         
         <PlasticSorting />
       </div>

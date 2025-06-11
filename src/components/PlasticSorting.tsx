@@ -133,7 +133,7 @@ const PlasticSorting = () => {
 
       <div className="bg-white rounded-xl shadow-2xl p-8 md:p-10 w-full max-w-2xl transform transition-all duration-300 hover:scale-105">
         <h1 className="text-3xl md:text-4xl font-extrabold text-center text-green-700 mb-6">
-          <span className="block">Plastic Recycling Sorter</span>
+          <span className="block">Plastic Recycling Sorter 🤖</span>
           <span className="text-xl md:text-2xl font-semibold text-blue-600 mt-2">AI-Powered Guidance</span>
         </h1>
 
